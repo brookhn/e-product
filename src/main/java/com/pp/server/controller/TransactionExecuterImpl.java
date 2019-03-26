@@ -15,7 +15,10 @@ public class TransactionExecuterImpl implements LocalTransactionExecuter {
 	public LocalTransactionState executeLocalTransactionBranch(Message msg, Object arg) {
 		// TODO Auto-generated method stub
 		try {
-			System.out.println(System.currentTimeMillis() + "本地事务执行成功，发送确认消息");
+			if ("Key2".equals(msg.getKeys())) {
+				throw new RuntimeException();
+			}
+			System.out.println(System.currentTimeMillis() + "本地事务执行成功，发送确认消息"+ "body:"+ new String(msg.getBody()) +" keys:"+ msg.getKeys());
 		}catch (Exception e) {
 			// TODO: handle exception
 			System.out.println(System.currentTimeMillis() + "本地事务执行失败");
