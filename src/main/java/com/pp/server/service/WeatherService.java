@@ -7,5 +7,6 @@ public interface WeatherService {
 
     WeatherResponse getDataCityById(String cityId);
 
+
     WeatherResponse getDataCityByName(String name);
 }
